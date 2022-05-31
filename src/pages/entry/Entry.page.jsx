@@ -29,6 +29,14 @@ export const Entry = () => {
         console.log(email,password)
         //call API for submitting form
     }
+    const handleOnResetSubmit =e=>{
+        e.preventDefault()
+        if(!email){
+           return alert('Please enter a valid email')
+        }
+        console.log(email)
+        //call API for submitting form
+    }
     const switchForm =(frmType)=>{
         setFrmLoad(frmType)
     }
@@ -40,7 +48,7 @@ export const Entry = () => {
     
   {frmLoad==='login' && <Login handleOnChange={handleOnChange} switchForm={switchForm} handleOnSubmit={handleOnSubmit} email={email} pass={password}/>
      }  
-     {frmLoad==='reset' && <ResetPass handleOnChange={handleOnChange} handleOnSubmit={handleOnSubmit} switchForm={switchForm} email={email}/>}
+     {frmLoad==='reset' && <ResetPass handleOnChange={handleOnChange} handleOnResetSubmit={handleOnResetSubmit} switchForm={switchForm} email={email}/>}
   
     
 
