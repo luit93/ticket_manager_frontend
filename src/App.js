@@ -1,5 +1,6 @@
 import './App.css';
 import Layout from './layout/Layout';
+import Dashboard from './pages/dashboard/Dashboard';
 import { Entry } from './pages/entry/Entry.page';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
  
      
      <Layout>
-     content
+     <Dashboard/>
      </Layout>
      {/* <Entry/> */}
     </div>
