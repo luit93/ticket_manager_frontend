@@ -1,7 +1,12 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { Container, Form, Col, Row, Button } from "react-bootstrap";
-const ResetPass = ({handleOnChange,handleOnResetSubmit,switchForm,email}) => {
+const ResetPass = ({
+  handleOnChange,
+  handleOnResetSubmit,
+  switchForm,
+  email,
+}) => {
   return (
     <div>
       <Container>
@@ -21,12 +26,15 @@ const ResetPass = ({handleOnChange,handleOnResetSubmit,switchForm,email}) => {
                   value={email}
                 />
                 <Form.Text className="text-muted">
-                Back to <a href="#!" onClick={()=>switchForm('login')}>Log in</a>
+                  Back to{" "}
+                  <a href="#!" onClick={() => switchForm("login")}>
+                    Log in
+                  </a>
                 </Form.Text>
               </Form.Group>
-            
+
               <Button className="m-2" type="submit">
-                Send Link 
+                Send Link
               </Button>
             </Form>
           </Col>
@@ -36,10 +44,9 @@ const ResetPass = ({handleOnChange,handleOnResetSubmit,switchForm,email}) => {
   );
 };
 ResetPass.propTypes = {
-    handleOnChange: PropTypes.func.isRequired,
-    handleOnResetSubmit: PropTypes.func.isRequired,
-    switchForm: PropTypes.func.isRequired,
-    email: PropTypes.string.isRequired,
-    
-}
+  handleOnChange: PropTypes.func.isRequired,
+  handleOnResetSubmit: PropTypes.func.isRequired,
+  switchForm: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+};
 export default ResetPass;
