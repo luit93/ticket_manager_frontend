@@ -1,7 +1,7 @@
 import React from 'react'
 import {  Button, Table } from "react-bootstrap";
 
-const CategoryTable = () => {
+const CategoryTable = ({categoryData}) => {
   return (
     <Table striped bordered hover variant="dark">
     <thead>
@@ -14,17 +14,22 @@ const CategoryTable = () => {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Chairs</td>
-        <td>4</td>
-        <td>
-          <Button>Edit</Button>
-        </td>
-        <td>
-          <Button>Remove</Button>
-        </td>
-      </tr>
+      {categoryData.length ? 
+      categoryData.map((row)=>(
+         <tr key={row.id}>
+         <td>{row.id}</td>
+         <td>{row.category}</td>
+         <td>{row.num}</td>
+         <td>
+           <Button>Edit</Button> 
+         </td>
+         <td>
+           <Button>Remove</Button>
+         </td>
+       </tr>
+        ))
+      : <tr><td colSpan="4" className='text-center'>No categories exist</td></tr>}
+     
     </tbody>
   </Table>
   )

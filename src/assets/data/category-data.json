@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "category":"chairs",
+        "num":24
+    },
+    {
+        "id":2,
+        "category":"tables",
+        "num":21
+    },
+    {
+        "id":3,
+        "category":"bags",
+        "num":4
+    },
+    {
+        "id":4,
+        "category":"toys",
+        "num":14
+    },
+    {
+        "id":5,
+        "category":"jewellery",
+        "num":11
+    },
+    {
+        "id":6,
+        "category":"hats",
+        "num":9
+    }
+]
