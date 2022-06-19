@@ -1,26 +1,31 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import { Container,Row,Col } from 'react-bootstrap'
 import PageBreadcrumb from '../../components/breadcrumb/PageBreadcrumb'
 import AddCategoryForm from '../../components/forms/AddCategoryForm'
-const initialFormdata = {
+const initialFormData = {
     category:'',
     description:'',
     image:null
 }
+
 const AddCategory = () => {
-    const [formData, setFormData] = useState(initialFormdata)
+    const [formData, setFormData] = useState(initialFormData)
+    useEffect(()=>{},[formData])
     const handleOnChange = e =>{
         const {name,value}= e.target
         setFormData({
-            ...initialFormdata,
+            ...formData,
             [name]:value
         })
         console.log(name, value)
     }
-    const handleOnSubmit =e =>{
+    const handleOnSubmit = async (e) =>{
         e.preventDefault()
-        console.log("form submission request")
+       
+       
+        console.log("form submission request",formData)
     }
   return (
     <Container>
