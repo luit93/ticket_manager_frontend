@@ -11,8 +11,8 @@ function App() {
  
      
      <Layout>
-     {/* <Category/> */}
-     <AddCategory/>
+     <Category/>
+     {/* <AddCategory/> */}
      </Layout>
      {/* <Entry/> */}
     </div>

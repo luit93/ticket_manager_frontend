@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Button, Table } from "react-bootstrap";
-
+import PropTypes from 'prop-types'
 const CategoryTable = ({categoryData}) => {
   return (
     <Table striped bordered hover variant="dark">
@@ -35,4 +35,7 @@ const CategoryTable = ({categoryData}) => {
   )
 }
 
+CategoryTable.propTypes ={
+  categoryData: PropTypes.array.isRequired
+}
 export default CategoryTable

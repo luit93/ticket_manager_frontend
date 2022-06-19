@@ -21,9 +21,13 @@
     color: azure;
 }
 
-.major-button{
-    padding-left: 200px;
-    padding-bottom: 40px;
-    width: 300px;
-    height: 70px;
+.button-search-row{
+    
+    padding: 40px 10px;
+    display: flex;
+    justify-content: space-between;
+  
+   
+    
+  
 }
