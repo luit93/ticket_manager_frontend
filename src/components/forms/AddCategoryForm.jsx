@@ -5,9 +5,9 @@ import PropTypes  from "prop-types";
 const AddCategoryForm = ({ handleOnSubmit, handleOnChange,formData }) => {
   console.log(formData)
     return (
-    <Container class="bg-dark text-light p-5">
+    <Container className="bg-dark text-light p-5">
        
-      <div class=" bg-dark p-5">
+      <div className=" bg-dark p-5">
       <h1 className="text-light text-center pb-2">Add New Category</h1>
         <Form autoComplete="off" onSubmit={handleOnSubmit}>
           <Form.Group as={Row}>

@@ -8,28 +8,28 @@ import { useState, useEffect } from "react";
 
 const Category = () => {
   const [str, setStr] = useState(" ");
-const [searchedCategory,setSearchedCategory]= useState(categoryData)
+  const [searchedCategory, setSearchedCategory] = useState(categoryData);
 
-  useEffect(() => {
-   
-  }, [str,searchedCategory]);
+  useEffect(() => {}, [str, searchedCategory]);
 
   const handleOnChange = (e) => {
-    const {value} = e.target
+    const { value } = e.target;
     setStr(value);
-    searchCategory(value)
+    searchCategory(value);
   };
 
-  const searchCategory = str =>{
-    const displayCategories = categoryData.filter(row=>row.category.toLowerCase().includes(str.toLowerCase()))
-    setSearchedCategory(displayCategories)
-  }
-  console.log(searchedCategory)
+  const searchCategory = (str) => {
+    const displayCategories = categoryData.filter((row) =>
+      row.category.toLowerCase().includes(str.toLowerCase())
+    );
+    setSearchedCategory(displayCategories);
+  };
+  console.log(searchedCategory);
   return (
     <Container className="d-flex-col ">
       <Row>
         <Col>
-          <PageBreadcrumb page="Category" />
+          <PageBreadcrumb page="Categories" />
         </Col>
       </Row>
       <Row className="button-search-row">
@@ -41,7 +41,7 @@ const [searchedCategory,setSearchedCategory]= useState(categoryData)
           <SearchForm handleOnChange={handleOnChange} str={str} />
         </Col>
       </Row>
-      <hr/>
+      <hr />
       <Row>
         <CategoryTable categoryData={searchedCategory} />
       </Row>
