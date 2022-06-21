@@ -26,7 +26,8 @@
         "category":"toys",
         "product":"megatron",
         "desc":"hail megatron",
-        "stock":11
+        "stock":11,
+        "img":"https://i.etsystatic.com/20215095/r/il/b2df7b/2495961662/il_fullxfull.2495961662_8f95.jpg"
     },
     {
         "id":5,
