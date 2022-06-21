@@ -11,10 +11,18 @@ const CategoryLanding = ({category}) => {
 
   const productData = allProductData.filter((row) =>
   row.category.toLowerCase().includes(category))
+
   const [searchedProduct, setSearchedProduct] = useState(productData);
  
 
   useEffect(() => {}, [str, searchedProduct]);
+
+ const searchProduct = (str) => {
+    const displayProducts = productData.filter((row) =>
+      row.product.toLowerCase().includes(str.toLowerCase())
+    );
+    setSearchedProduct(displayProducts);
+  };
 
   const handleOnChange = (e) => {
     const { value } = e.target;
@@ -22,14 +30,10 @@ const CategoryLanding = ({category}) => {
     searchProduct(value);
   };
 
-  const searchProduct = (str) => {
-    const displayProducts = productData.filter((row) =>
-      row.product.toLowerCase().includes(str.toLowerCase())
-    );
-    setSearchedProduct(displayProducts);
-  };
+ 
 
-  console.log(searchedProduct)
+  console.log('spd',searchedProduct)
+
 
   return (
     <Container className="d-flex-col ">

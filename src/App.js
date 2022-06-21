@@ -14,7 +14,7 @@ function App() {
      <Layout>
      {/* <Category/> */}
      {/* <AddCategory/> */}
-     <CategoryLanding category=""/>
+     <CategoryLanding category="toys"/>
      </Layout>
     
      {/* <Entry/> */}
