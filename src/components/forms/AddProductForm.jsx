@@ -1,0 +1,106 @@
+import React from "react";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import PropTypes  from "prop-types";
+
+const AddProductForm = ({ handleOnSubmit, handleOnChange,formData }) => {
+  console.log(formData)
+    return (
+    <Container className="bg-dark text-light p-5">
+       
+      <div className=" bg-dark p-5">
+      <h1 className="text-light text-center pb-2">Add New Product</h1>
+        <Form autoComplete="off" onSubmit={handleOnSubmit}>
+          <Form.Group as={Row}>
+            <Form.Label column sm={3} className="text-light ">
+              Product Name
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                required
+                value={formData.product}
+                placeholder="Enter Product"
+                type="text"
+                name="product"
+                minLength={1}
+                maxLength={50}
+                onChange={handleOnChange}
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mt-4">
+            <Form.Label column sm={3} className="text-light ">
+              Category
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                required
+                value={formData.category}
+                placeholder="Enter Category"
+                type="text"
+                name="category"
+                minLength={1}
+                maxLength={50}
+                onChange={handleOnChange}
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mt-4">
+            <Form.Label column sm={3} className="text-light ">
+              Stock
+            </Form.Label>
+            <Col sm={3}>
+              <Form.Control
+                required
+                value={formData.stock}
+                placeholder="Enter Category"
+                type="number"
+                name="stock"
+                onChange={handleOnChange}
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mt-4">
+            <Form.Label column sm={3} className="text-light  mt-4">
+              Description
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                required
+                placeholder="Enter Description"
+                rows={3}
+                value={formData.desc}
+                as="textarea"
+                type="text"
+                name="desc"
+                minLength={1}
+                maxLength={1000}
+                onChange={handleOnChange}
+              />
+            </Col>
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formFileLg" className="mt-4 mb-3">
+            <Form.Label column sm={3} className="text-light mt-2 ">
+              Add Image
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control type="file" size="lg" value={formData.image}  />
+            </Col>
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
+         
+          <Button variant="primary" type="submit" size="lg">
+            Add Product
+          </Button>
+        </Form>
+      </div>
+    </Container>
+  );
+};
+
+AddProductForm.propTypes ={
+    handleOnChange: PropTypes.func.isRequired,
+    handleOnSubmit: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired
+}
+export default AddProductForm;

@@ -1,0 +1,49 @@
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { Container,Row,Col } from 'react-bootstrap'
+import PageBreadcrumb from '../../components/breadcrumb/PageBreadcrumb'
+import AddProductForm from '../../components/forms/AddProductForm'
+
+const initialFormData = {
+    product:'',
+    category:'',
+    stock:'',
+    description:'',
+    image:''
+}
+
+const AddProduct = () => {
+    const [formData, setFormData] = useState(initialFormData)
+    useEffect(()=>{},[formData])
+    const handleOnChange = e =>{
+        const {name,value}= e.target
+        setFormData({
+            ...formData,
+            [name]:value
+        })
+        console.log(name, value)
+    }
+    const handleOnSubmit = async (e) =>{
+        e.preventDefault()
+       
+       
+        console.log("form submission request",formData)
+    }
+  return (
+    <Container>
+        <Row>
+            <Col>
+            <PageBreadcrumb page="Add Product"/>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+          <AddProductForm handleOnChange={handleOnChange} handleOnSubmit={handleOnSubmit} formData={formData}/>
+            </Col>
+        </Row>
+    </Container>
+  )
+}
+
+export default AddProduct

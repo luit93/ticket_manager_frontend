@@ -6,7 +6,7 @@ import allProductData from "../../assets/data/product-data.json";
 import ProductTable from "../../components/tables/ProductTable";
 import { useState, useEffect } from "react";
 
-const CategoryLanding = ({category}) => {
+const CategoryLanding = ({category,desc}) => {
   const [str, setStr] = useState(" ");
 
   const productData = allProductData.filter((row) =>
@@ -47,10 +47,9 @@ const CategoryLanding = ({category}) => {
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src="" />
             <Card.Body>
-              <Card.Title>Category name</Card.Title>
+              <Card.Title>{category}</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+              {desc}
               </Card.Text>
             </Card.Body>
           </Card>

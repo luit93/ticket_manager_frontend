@@ -4,42 +4,42 @@
         "category":"chairs",
         "product":"sofa",
         "stock":11,
-        "desc":""
+        "desc":"nnnnn"
     },
  
     {
         "id":2,
         "category":"tables",
         "product":"coffee table",
-        "desc":"",
+        "desc":"khkkbk",
         "stock":11
     },
     {
         "id":3,
         "category":"bags",
         "product":"wallet",
-        "desc":"",
+        "desc":"hbjbk",
         "stock":11
     },
     {
         "id":4,
         "category":"toys",
         "product":"megatron",
-        "desc":"",
+        "desc":"hail megatron",
         "stock":11
     },
     {
         "id":5,
         "category":"jewellery",
         "product":"ring",
-        "desc":"",
+        "desc":"blingerzzz",
         "stock":11
     },
     {
         "id":6,
         "category":"hats",
         "product":"beanie",
-        "desc":"",
+        "desc":"meanie",
         "stock":11
     },
     {
@@ -47,34 +47,34 @@
         "category":"chairs",
         "product":"bean bag",
         "stock":11,
-        "desc":""
+        "desc":"sit!"
     },
     {
         "id":8,
         "category":"bags",
         "product":"purse",
-        "desc":"",
+        "desc":"snatch",
         "stock":11
     },
     {
         "id":9,
         "category":"jewellery",
         "product":"ear ring",
-        "desc":"",
+        "desc":"lobe",
         "stock":11
     },
     {
         "id":10,
         "category":"jewellery",
         "product":"necklace",
-        "desc":"",
+        "desc":"clutch",
         "stock":11
     },
     {
         "id":11,
         "category":"toys",
         "product":"piccollo",
-        "desc":"",
+        "desc":"sbc",
         "stock":11
     }
 ]
