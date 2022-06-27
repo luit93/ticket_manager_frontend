@@ -1,0 +1,29 @@
+[
+    {
+        "orderId":"luit22/12/2022aa@a.com",
+        "orderDate":"22/12/2022",
+        "customerName":"luit",
+        "customerEmail":"aa@a.com",
+        "customerId":"luit22",
+        "orderTotal":69,
+        "orderStatus":"completed"
+    },
+    {
+        "orderId":"abby21/02/2022ab@a.com",
+        "orderDate":"21/02/2022",
+        "customerName":"abby",
+        "customerEmail":"ab@a.com",
+        "customerId":"abby1",
+        "orderTotal":420,
+        "orderStatus":"delivering"
+    },
+    {
+        "orderId":"me02/04/2022me@a.com",
+        "orderDate":"02/04/2022",
+        "customerName":"me",
+        "customerEmail":"me@a.com",
+        "customerId":"m95",
+        "orderTotal":69,
+        "orderStatus":"packing"
+    }
+]
