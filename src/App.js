@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/" element={<Entry />} />
+            <Route path="/entry" element={<Entry />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/categories" element={<Category />} />

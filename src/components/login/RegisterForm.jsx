@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Form, Col, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 const RegisterForm = ({ handleOnChange, handleOnSubmit, email, password, name,dob }) => {
   return (
     <div>
@@ -21,7 +23,7 @@ const RegisterForm = ({ handleOnChange, handleOnSubmit, email, password, name,do
                   value={email}
                 />
                 <Form.Text className="text-muted">
-                  Already registered? <a href="#!">Sign In</a>
+                  Already registered? <Link to="/entry">Sign In</Link>
                 </Form.Text>
               </Form.Group>
               <Form.Group>

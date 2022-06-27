@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Form, Col, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 const Login = ({ handleOnChange, handleOnSubmit, email, pass, switchForm }) => {
   return (
     <div>
@@ -21,7 +23,7 @@ const Login = ({ handleOnChange, handleOnSubmit, email, pass, switchForm }) => {
                   value={email}
                 />
                 <Form.Text className="text-muted">
-                  Not yet registered? <a href="#!">Sign Up</a>
+                  Not yet registered? <Link to="/register">Sign Up</Link>
                 </Form.Text>
               </Form.Group>
               <Form.Group>
