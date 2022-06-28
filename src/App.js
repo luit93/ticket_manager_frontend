@@ -11,31 +11,32 @@ import AddProduct from "./pages/product/AddProduct";
 import ProductLanding from "./pages/product/ProductLanding";
 import RegisterPage from "./pages/entry/RegisterPage";
 import OrderLanding from "./pages/orders/OrderLanding";
+import PrivateRoute from "./components/private-route/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Layout>
+        
           <Routes>
             <Route path="/entry" element={<Entry />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/categories" element={<Category />} />
-            <Route path="/addcat" element={<AddCategory />} />
+            <Route path="/categories" element={<PrivateRoute><Category /></PrivateRoute>} />
+            <Route path="/addcat" element={<PrivateRoute><AddCategory /></PrivateRoute>} />
             <Route
               path="/category"
-              element={<CategoryLanding category="toys" desc="dna" />}
+              element={<PrivateRoute><CategoryLanding category="toys" desc="dna" /></PrivateRoute>}
             />
-            <Route path="/addprod" element={<AddProduct />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/purchase" element={<OrderLanding />} />
+            <Route path="/addprod" element={<PrivateRoute><AddProduct /></PrivateRoute>} />
+            <Route path="/orders" element={<PrivateRoute><Orders /></PrivateRoute>} />
+            <Route path="/purchase" element={<PrivateRoute><OrderLanding /></PrivateRoute>} />
             <Route
               path="/product"
-              element={<ProductLanding productName="megatron" />}
+              element={<PrivateRoute><ProductLanding productName="megatron" /></PrivateRoute>}
             />
           </Routes>
-        </Layout>
+        
       </Router>
     </div>
   );
