@@ -5,6 +5,7 @@ import categoryData from "../../assets/data/category-data.json";
 import PageBreadcrumb from "../../components/breadcrumb/PageBreadcrumb";
 import SearchForm from "../../components/forms/SearchForm";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   const [str, setStr] = useState(" ");
@@ -35,7 +36,7 @@ const Category = () => {
       <Row className="button-search-row">
         <Col>
           {" "}
-          <Button>Add New Category</Button>
+          <Link to="/addcat"><Button>Add New Category</Button></Link>
         </Col>
         <Col>
           <SearchForm handleOnChange={handleOnChange} str={str} />

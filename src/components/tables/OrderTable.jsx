@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Table } from 'react-bootstrap'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 const OrderTable = ({orderData}) => {
   return (
     <Table striped bordered hover variant="dark">
@@ -30,7 +31,7 @@ const OrderTable = ({orderData}) => {
                 <td>{row.orderTotal}</td>
                 <td>{row.orderStatus}</td>
                
-                <td><Button>View Order</Button></td>
+                <td><Link to="/order/:id"><Button>View Order</Button></Link></td>
             </tr>
         ))
         : <tr><td colSpan="4" className='text-center'>No orders exist</td></tr>
