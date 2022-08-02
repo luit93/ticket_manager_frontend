@@ -1,31 +1,20 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import CategoryTable from "../../components/tables/CategoryTable";
-import categoryData from "../../assets/data/category-data.json";
 import PageBreadcrumb from "../../components/breadcrumb/PageBreadcrumb";
 import SearchForm from "../../components/forms/SearchForm";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { fetchAllCategories } from "./categoryListAction";
 const Category = () => {
-  const [str, setStr] = useState(" ");
-  const [searchedCategory, setSearchedCategory] = useState(categoryData);
+  const dispatch = useDispatch()
 
-  useEffect(() => {}, [str, searchedCategory]);
 
-  const handleOnChange = (e) => {
-    const { value } = e.target;
-    setStr(value);
-    searchCategory(value);
-  };
+  useEffect(() => {dispatch(fetchAllCategories())}, [dispatch]);
 
-  const searchCategory = (str) => {
-    const displayCategories = categoryData.filter((row) =>
-      row.category.toLowerCase().includes(str.toLowerCase())
-    );
-    setSearchedCategory(displayCategories);
-  };
-  console.log(searchedCategory);
+
+
   return (
     <Container className="d-flex-col ">
       <Row>
@@ -39,12 +28,13 @@ const Category = () => {
           <Link to="/addcat"><Button>Add New Category</Button></Link>
         </Col>
         <Col>
-          <SearchForm handleOnChange={handleOnChange} str={str} />
+          <SearchForm  />
         </Col>
       </Row>
       <hr />
       <Row>
-        <CategoryTable categoryData={searchedCategory} />
+        <CategoryTable  />
+        
       </Row>
     </Container>
   );
