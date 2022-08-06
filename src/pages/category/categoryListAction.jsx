@@ -5,7 +5,7 @@ export const fetchAllCategories=()=> async (dispatch)=>{
     try {
         //fetch data from api
         const result =await getAllCategories()
-        console.log(result.data.categories)
+        // console.log(result.data.categories)
         dispatch(fetchCategoryListSuccess(result.data.categories))
     } catch (error) {
         dispatch(fetchCategoryListFail(error.message))

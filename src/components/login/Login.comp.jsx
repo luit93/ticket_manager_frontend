@@ -6,7 +6,7 @@ import {loginPending,loginSuccess,loginFail} from './loginSlice'
 import { useDispatch,useSelector } from "react-redux";
 import { userLogin } from "../../api/userApi";
 import { useNavigate } from "react-router-dom";
-
+import { getUserProfile } from "../../pages/dashboard/userAction";
 const Login = ({switchForm }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -38,6 +38,7 @@ const Login = ({switchForm }) => {
        return dispatch(loginFail(result.message))
       }
       dispatch(loginSuccess())
+      dispatch(getUserProfile())
       navigate('/dashboard')
     } catch (error) {
       dispatch(loginFail(error.message))
