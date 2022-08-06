@@ -1,16 +1,60 @@
-import React from "react";
+import React,{useState} from "react";
 import PropTypes from "prop-types";
-import { Container, Form, Col, Row, Button } from "react-bootstrap";
+import { Container, Form, Col, Row, Button,Spinner,Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {loginPending,loginSuccess,loginFail} from './loginSlice'
+import { useDispatch,useSelector } from "react-redux";
+import { userLogin } from "../../api/userApi";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ handleOnChange, handleOnSubmit, email, pass, switchForm }) => {
+const Login = ({switchForm }) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {isLoading,isAuth,error} = useSelector(state=> state.login)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      return alert("fill all the blanks");
+    }
+    dispatch(loginPending())
+    try {
+      const  result = await userLogin({email,password})
+      if(result.status === 'error'){
+       return dispatch(loginFail(result.message))
+      }
+      dispatch(loginSuccess())
+      navigate('/dashboard')
+    } catch (error) {
+      dispatch(loginFail(error.message))
+
+    }
+  };
   return (
+      
+  
+
     <div>
       <Container>
         <Row>
           <Col>
             <h2>Log In</h2>
             <hr />
+            {error && <Alert variant="danger">{error}</Alert>}
             <Form autoComplete="off" onSubmit={handleOnSubmit}>
               <Form.Group>
                 <Form.Label>Email</Form.Label>
@@ -34,7 +78,7 @@ const Login = ({ handleOnChange, handleOnSubmit, email, pass, switchForm }) => {
                   onChange={handleOnChange}
                   type="password"
                   name="password"
-                  value={pass}
+                  value={password}
                 />
                 <Form.Text className="text-muted">
                   <a href="#!" onClick={() => switchForm("reset")}>
@@ -45,6 +89,7 @@ const Login = ({ handleOnChange, handleOnSubmit, email, pass, switchForm }) => {
               <Button className="m-2" type="submit">
                 Log In
               </Button>
+              {isLoading && <Spinner variant="primary" animation="border"/> }
             </Form>
           </Col>
         </Row>
@@ -53,10 +98,6 @@ const Login = ({ handleOnChange, handleOnSubmit, email, pass, switchForm }) => {
   );
 };
 Login.propTypes = {
-  handleOnChange: PropTypes.func.isRequired,
   switchForm: PropTypes.func.isRequired,
-  handleOnSubmit: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  pass: PropTypes.string.isRequired,
 };
 export default Login;

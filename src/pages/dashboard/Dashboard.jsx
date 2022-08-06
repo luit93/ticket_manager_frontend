@@ -1,4 +1,5 @@
-import React from "react";
+import React,{ useEffect } from "react";
+import { useSelector } from 'react-redux';
 import {
   Container,
   Row,
@@ -7,7 +8,16 @@ import {
   ListGroup,
   ListGroupItem,Button
 } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { fetchAllCategories } from "../category/categoryListAction";
 const Dashboard = () => {
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {dispatch(fetchAllCategories())}, [dispatch]);
+
+  const {categories}= useSelector(state => state.categories)
+  
   return (
     <Container>
       <Row>
@@ -22,7 +32,7 @@ const Dashboard = () => {
               <ListGroupItem className="text-center">
                 total categories:
               </ListGroupItem>
-              <ListGroupItem className="text-center">9</ListGroupItem>
+              <ListGroupItem className="text-center">{categories.length}</ListGroupItem>
             </ListGroup>
           </Card>
         </Col>
