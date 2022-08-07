@@ -19,7 +19,7 @@ function App() {
       <Router>
         
           <Routes>
-            <Route path="/entry" element={<Entry />} />
+            <Route path="/" element={<Entry />} />
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/categories" element={<PrivateRoute><Category /></PrivateRoute>} />

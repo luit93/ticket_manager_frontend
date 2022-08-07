@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import PropTypes from "prop-types";
 import { Container, Form, Col, Row, Button,Spinner,Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -11,8 +11,9 @@ const Login = ({switchForm }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const {isLoading,isAuth,error} = useSelector(state=> state.login)
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  useEffect(()=>{(sessionStorage.getItem('accessJWT')) && navigate('/dashboard')},[isAuth,navigate])
+  const [email, setEmail] = useState("newuser@s.com");
+  const [password, setPassword] = useState("999999999");
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     switch (name) {

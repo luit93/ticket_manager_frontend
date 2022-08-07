@@ -2,12 +2,16 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import {LinkContainer} from 'react-router-bootstrap'
+import { userLogout } from "../api/userApi";
 
 const Header = () => {
   const history = useNavigate()
 
   const logOut =()=>{
-    history("/entry")
+    sessionStorage.removeItem('accessJWT')
+    localStorage.removeItem('stockManager')
+    userLogout()
+    history("/")
   }
   return (
     <Navbar collapseOnSelect variant="dark" bg="dark" expand="md">

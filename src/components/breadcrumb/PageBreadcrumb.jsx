@@ -1,9 +1,12 @@
 import React from 'react'
 import { Breadcrumb } from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
+
 const PageBreadcrumb = ({page}) => {
   return (
     <Breadcrumb>
-      <Breadcrumb.Item href="/">Dashboard</Breadcrumb.Item>
+    <LinkContainer to='/'>
+      <Breadcrumb.Item >Dashboard</Breadcrumb.Item></LinkContainer>
      
       <Breadcrumb.Item active>{page}</Breadcrumb.Item>
     </Breadcrumb>
